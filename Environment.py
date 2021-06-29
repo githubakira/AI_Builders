@@ -15,17 +15,6 @@ def getBoardCopy(board):
     dupeBoard = board.copy()
     return dupeBoard
 
-def enterPlayerTile():
-    tile = ''
-    while not (tile == 'X' or tile == 'O'):
-        print('Do you want to be X or O?')
-        tile = input().upper()
-
-    if tile == 'X':
-        return [1, 2]# ''=0 x=1 o=2
-    else:
-        return [2, 1]
-
 def makeMove(board, tile, xstart, ystart):
     tilesToFlip = ValidMove(board, tile, xstart, ystart)
     if tilesToFlip == False:
@@ -116,7 +105,3 @@ def getScoreOfBoard(board):
             if board[x][y] == 2:
                 oscore += 1
     return {1:xscore, 2:oscore}
-
-def showPoints(playerTile, computerTile):
-    scores = getScoreOfBoard(mainBoard)
-    print('You have %s points. The computer has %s points.' % (scores[playerTile], scores[computerTile]))
