@@ -120,3 +120,12 @@ for ii in range(1001, episode):
                 q_table[tup_nextstate] = np.zeros((N*N,))
                 q_table[tup_nextstate][validnum] = (1/(0.5*(N*N-4)))*np.ones((len(validnum),))
         state = next_state
+
+def rlMove(board):
+    if tup_state not in keys: #ดูว่า มี state นี่อยู่แล้วหรือไม่
+        return random.choice(getValidMoves(board,1)
+    else:
+        tmp = validnum[np.argmax(q_table[tup_state][validnum])]
+        action = numToList(tmp) 
+        return action
+        return action
