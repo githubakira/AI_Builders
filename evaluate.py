@@ -19,7 +19,7 @@ def evaluate(episode,out=0, N = 6):
             if gameEnd(main):
                 break
             if turn == 2 and nvalid2 != 0:
-                move = getComputerMove(main, 2, 3)
+                move = minnimaxMove(main, 2, 3)
                 makeMove(main,2,move[0],move[1])
                 if out == 1:
                     print('2 move:\n',main)
