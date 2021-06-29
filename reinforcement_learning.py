@@ -40,7 +40,6 @@ def oneToTwo(board,tile,N=6):
 
 q_table = dict()
 keys = q_table.keys()
-keys
 
 episode = 2001
 N = 6
