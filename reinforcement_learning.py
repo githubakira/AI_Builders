@@ -1,6 +1,7 @@
 from Environment import *
 def rlMove(board,q_table):
     board = np.array(board)
+    N = board.shape[0]
     valid = getValidMoves(board,1)
     validnum = [tmp[0]*N+tmp[1] for tmp in valid]
     tup_state = tuple(board.reshape(board.size,))
