@@ -145,3 +145,9 @@ def oneToTwo(board,tile,N=6):
                 newBoard[i][ii]=tile
     newBoard = newBoard[:,N::-1]
     return newBoard
+
+def otherTile(tile):
+    if tile == 1:
+        return 2
+    else:
+        return 1
