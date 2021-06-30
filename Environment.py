@@ -105,3 +105,43 @@ def getScoreOfBoard(board):
             if board[x][y] == 2:
                 oscore += 1
     return {1:xscore, 2:oscore}
+
+def numToList(num, N=6):
+    row = num//N
+    column = num%N
+    action = [row, column]
+    return action
+        
+def compstnum(state):
+    tmp = state.reshape(16,)
+    statenumber = 0
+    for ii in range(16):
+        statenumber = statenumber + tmp[ii]*(3**ii)
+    return statenumber
+
+def makeMoveRl(move, board, tile, N = 6):
+    nboard = getBoardCopy(board)
+    makeMove(nboard, tile, move[0],move[1])
+    if getScoreOfBoard(nboard)[tile]>getScoreOfBoard(nboard)[otherTile(tile)]and gameEnd(nboard):
+        return nboard, 1, True
+    elif getScoreOfBoard(nboard)[tile]<getScoreOfBoard(nboard)[otherTile(tile)]and gameEnd(nboard):
+        return nboard, -1, True
+    elif getScoreOfBoard(nboard)[tile]==getScoreOfBoard(nboard)[otherTile(tile)]and gameEnd(nboard):
+        return nboard, 0.5, True
+    elif len(getValidMoves(nboard,tile))==0:
+        return nboard, -1, False
+    elif len(getValidMoves(nboard,otherTile(tile)))==0:
+        return nboard, 1, False
+    else:
+        return nboard, (1/(0.5*(N*N-4))), False
+
+def oneToTwo(board,tile,N=6):
+    newBoard=board.copy()
+    for i in range(N):
+        for ii in range(N):
+            if newBoard[i][ii] == tile:
+                newBoard[i][ii]=otherTile(tile)
+            elif newBoard[i][ii] == otherTile(tile):
+                newBoard[i][ii]=tile
+    newBoard = newBoard[:,N::-1]
+    return newBoard
