@@ -1,4 +1,5 @@
 from Environment import *
+from Minimax import *
 #load previous trained q_table
 # path = 'file location'
 # file = open(path,'rb')
