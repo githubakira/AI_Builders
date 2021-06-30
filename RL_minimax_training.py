@@ -1,3 +1,13 @@
+from Environment import *
+#load previous trained q_table
+# path = 'file location'
+# file = open(path,'rb')
+# q_table = pickle.load(file)
+# file.close()
+# or start with new q_table
+# q_table = dict()
+# keys = q_table.keys()
+
 episode = 2001
 N = 6
 """Training the agent"""
