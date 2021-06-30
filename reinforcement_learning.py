@@ -7,7 +7,7 @@ def rlMove(board,q_table):
     tup_state = tuple(board.reshape(board.size,))
     keys =q_table.keys()
     if tup_state not in keys: #ดูว่า มี state นี่อยู่แล้วหรือไม่
-        return random.choice(getValidMoves(board,1)
+        return random.choice(getValidMoves(board,1))
     else:
         tmp = validnum[np.argmax(q_table[tup_state][validnum])]
         action = numToList(tmp) 
