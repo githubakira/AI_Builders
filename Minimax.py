@@ -83,3 +83,35 @@ def minimaxMove(board, computerTile, depth):
     scores = dict(zip(list(range(len(valid_moves))), [score_move(board, ii[0], ii[1], computerTile, depth) for ii in valid_moves]))
     max_cols = [key for key in scores.keys() if scores[key] == max(scores.values())]
     return valid_moves[random.choice(max_cols)]
+
+def getComputerMove(board, computerTile, depth):
+  is_terminal = gameEnd(board)
+  valid_moves = getValidMoves(board, computerTile)
+  def minimax(node, depth, maximizingPlayer, tile):
+    if depth == 0 or gameEnd:
+        return get_heuristic(node,tile)
+    if maximizingPlayer:
+        value = -np.Inf
+        for x,y in valid_moves:
+            child = getBoardCopy(node)
+            makeMove(child, tile, x, y)
+            value = max(value, minimax(child, depth - 1, False, tile))
+        return value
+    else:
+        value = np.Inf
+        for x,y in valid_moves:
+            child = getBoardCopy(node)
+            makeMove(child, otherTile(tile), x, y)
+            value = min(value, minimax(child, depth - 1, True, tile))
+        return value
+  def score_move(board, x, y, computertile, nsteps):
+    dupeBoard = getBoardCopy(board)
+    makeMove(dupeBoard, computertile, x, y)
+    score = minimax(dupeBoard, nsteps-1, False, computertile)
+    return score
+  # print(valid_moves)
+  scores = dict(zip(list(range(len(valid_moves))), [score_move(board, ii[0], ii[1], computerTile, depth) for ii in valid_moves]))
+    # Get a list of columns (moves) that maximize the heuristic
+  max_cols = [key for key in scores.keys() if scores[key] == max(scores.values())]
+  # print(scores)
+  return valid_moves[random.choice(max_cols)]
