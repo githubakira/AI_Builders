@@ -151,7 +151,7 @@ def otherTile(tile):
         return 2
     else:
         return 1
-def dboard(N=6):
+def dboard(mainBoard,N=6):
   for kk in range(N*N):
     ii = kk//N
     jj = kk%N
