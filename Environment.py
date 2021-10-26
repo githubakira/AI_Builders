@@ -164,7 +164,7 @@ def dboard(mainBoard,items,N=6):
       items[kk].style.button_color = 'white'
   return
 
-def player(b,indx,items,mainBoard,playerTile):
+def player(b,indx,items,mainBoard,playerTile,computerTile, nstep):
   if makeMove(mainBoard, playerTile, indx[0], indx[1]):
     dboard(mainBoard,items)
     if gameEnd(mainBoard):
