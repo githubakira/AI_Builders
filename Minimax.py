@@ -85,6 +85,7 @@ def minimaxMove(board, computerTile, depth):
     return valid_moves[random.choice(max_cols)]
 
 def getComputerMove(board, computerTile, depth):
+  from Environment import *
   is_terminal = gameEnd(board)
   valid_moves = getValidMoves(board, computerTile)
   def minimax(node, depth, maximizingPlayer, tile):
