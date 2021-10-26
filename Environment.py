@@ -151,3 +151,55 @@ def otherTile(tile):
         return 2
     else:
         return 1
+def dboard(N=6):
+  for kk in range(N*N):
+    ii = kk//N
+    jj = kk%N
+    if mainBoard[ii][jj] == 1:
+      # print('1')
+      items[kk].style.button_color = 'black'
+    if mainBoard[ii][jj] == 2:
+      # print('2')
+      items[kk].style.button_color = 'white'
+  return
+
+def player(b,indx,items):
+  if makeMove(mainBoard, playerTile, indx[0], indx[1]):
+    dboard()
+    if gameEnd(mainBoard):
+      with out:
+        clear_output()
+        print('END')
+        while True:
+          1==1
+    else:
+      if len(getValidMoves(mainBoard,1)) == 0:
+        with out:
+          clear_output()
+          print('Computer has no move!')
+      else:
+        x, y = getComputerMove(mainBoard, computerTile, nstep)
+        makeMove(mainBoard, computerTile, x, y)
+        dboard()
+        with out:
+          clear_output()
+          print(getScoreOfBoard(mainBoard))
+        while len(getValidMoves(mainBoard,2)) == 0:
+          if gameEnd(mainBoard):
+            with out:
+              clear_output()
+              print('END')
+              while True:
+                1==1
+          x, y = getComputerMove(mainBoard, computerTile, nstep)
+          makeMove(mainBoard, computerTile, x, y)
+          dboard()
+          with out:
+            clear_output()
+            print(getScoreOfBoard(mainBoard))
+  else:
+    with out:
+      clear_output()
+      print('Cannot move here!')
+    return
+  return
