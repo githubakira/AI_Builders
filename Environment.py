@@ -165,7 +165,7 @@ def dboard(mainBoard,N=6):
 
 def player(b,indx,items):
   if makeMove(mainBoard, playerTile, indx[0], indx[1]):
-    dboard()
+    dboard(mainBoard)
     if gameEnd(mainBoard):
       with out:
         clear_output()
@@ -180,7 +180,7 @@ def player(b,indx,items):
       else:
         x, y = getComputerMove(mainBoard, computerTile, nstep)
         makeMove(mainBoard, computerTile, x, y)
-        dboard()
+        dboard(mainBoard)
         with out:
           clear_output()
           print(getScoreOfBoard(mainBoard))
@@ -193,7 +193,7 @@ def player(b,indx,items):
                 1==1
           x, y = getComputerMove(mainBoard, computerTile, nstep)
           makeMove(mainBoard, computerTile, x, y)
-          dboard()
+          dboard(mainBoard)
           with out:
             clear_output()
             print(getScoreOfBoard(mainBoard))
