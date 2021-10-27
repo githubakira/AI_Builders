@@ -345,3 +345,9 @@ def getComputerMove(board, computerTile, depth):
   max_cols = [key for key in scores.keys() if scores[key] == max(scores.values())]
   # print(scores)
   return valid_moves[random.choice(max_cols)]
+
+def newgame(b,mainBoard,items):
+    mainBoard = resetBoard()
+    dboard(mainBoard,items)
+    return
+
