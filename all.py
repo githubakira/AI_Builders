@@ -3,6 +3,12 @@ import pandas as pd
 import random
 import pickle
 
+from ipywidgets import Layout, Button, VBox, Label, Box
+import ipywidgets as widgets
+from IPython.display import display, clear_output
+import functools
+import numpy as np
+
 def resetBoard(N=6):
     board = np.array([0 for ii in range(N*N)]).reshape(N,N)
     board[N//2-1][N//2-1] = 1# 0=' ' 1=X 2=O
