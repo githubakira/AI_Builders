@@ -174,7 +174,8 @@ def dboard(mainBoard,items,N=6):
 
 def player(b,indx,items,mainBoard,playerTile,computerTile, nstep,out):
   if indx == [6,0]:
-    newgame(mainBoard,items)
+    mainBoard = resetBoard()
+    dboard(mainBoard,items)
     return
   if makeMove(mainBoard, playerTile, indx[0], indx[1]):
     dboard(mainBoard,items)
@@ -199,6 +200,7 @@ def player(b,indx,items,mainBoard,playerTile,computerTile, nstep,out):
           print('Black : ',getScoreOfBoard(mainBoard)[1],' points')
           print('White : ',getScoreOfBoard(mainBoard)[2],' points')
           print('Computer has no move!')
+          print('CONGRATULATIONs! YOU WON!!!')
       else:
         x, y = getComputerMove(mainBoard, computerTile, nstep)
         makeMove(mainBoard, computerTile, x, y)
