@@ -173,6 +173,7 @@ def dboard(mainBoard,items,N=6):
   return
 
 def player(b,indx,items,mainBoard,playerTile,computerTile, nstep,out):
+  N = 6
   if indx == [6,0]:
     mainBoard[:][:] = np.array([0 for ii in range(N*N)]).reshape(N,N)
     mainBoard[N//2-1][N//2-1] = 1# 0=' ' 1=X 2=O
