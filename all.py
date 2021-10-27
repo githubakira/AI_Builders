@@ -161,6 +161,9 @@ def dboard(mainBoard,items,N=6):
   for kk in range(N*N):
     ii = kk//N
     jj = kk%N
+    if mainBoard[ii][jj] == 0:
+      # print('1')
+      items[kk].style.button_color = None
     if mainBoard[ii][jj] == 1:
       # print('1')
       items[kk].style.button_color = 'black'
@@ -354,7 +357,7 @@ def newgame(b,mainBoard,items):
   mainBoard[N//2][N//2-1] = 2
   mainBoard[N//2][N//2] = 1
   dboard(mainBoard,items)
-  print(mainBoard)
-  print(items)
+#   print(mainBoard)
+#   print(items)
   return
 
