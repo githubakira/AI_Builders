@@ -352,7 +352,7 @@ def getComputerMove(board, computerTile, depth):
   # print(scores)
   return valid_moves[random.choice(max_cols)]
 
-def newgame(b,mainBoard,items):
+def newgame(mainBoard,items):
   N = mainBoard.shape[0]
   mainBoard = np.array([0 for ii in range(N*N)]).reshape(N,N)
   mainBoard[N//2-1][N//2-1] = 1# 0=' ' 1=X 2=O
