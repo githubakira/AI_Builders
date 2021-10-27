@@ -175,13 +175,23 @@ def player(b,indx,items,mainBoard,playerTile,computerTile, nstep,out):
     if gameEnd(mainBoard):
       with out:
         clear_output()
+        print('Black : ',getScoreOfBoard(mainBoard)[1],' points')
+        print('White : ',getScoreOfBoard(mainBoard)[2],' points')
         print('END')
+        if getScoreOfBoard(mainBoard)[1]>getScoreOfBoard(mainBoard)[2]:
+          print('Sorry, YOU LOST! COMPUTER WON!')
+        elif getScoreOfBoard(mainBoard)[1]<getScoreOfBoard(mainBoard)[2]:
+          print('CONGRATULATIONs! YOU WON!!!')
+        else:
+          print('TIE! Play again?')
         while True:
           1==1
     else:
       if len(getValidMoves(mainBoard,1)) == 0:
         with out:
           clear_output()
+          print('Black : ',getScoreOfBoard(mainBoard)[1],' points')
+          print('White : ',getScoreOfBoard(mainBoard)[2],' points')
           print('Computer has no move!')
       else:
         x, y = getComputerMove(mainBoard, computerTile, nstep)
@@ -189,12 +199,21 @@ def player(b,indx,items,mainBoard,playerTile,computerTile, nstep,out):
         dboard(mainBoard,items)
         with out:
           clear_output()
-          print(getScoreOfBoard(mainBoard))
+          print('Black : ',getScoreOfBoard(mainBoard)[1],' points')
+          print('White : ',getScoreOfBoard(mainBoard)[2],' points')
         while len(getValidMoves(mainBoard,2)) == 0:
           if gameEnd(mainBoard):
             with out:
               clear_output()
+              print('Black : ',getScoreOfBoard(mainBoard)[1],' points')
+              print('White : ',getScoreOfBoard(mainBoard)[2],' points')
               print('END')
+              if getScoreOfBoard(mainBoard)[1]>getScoreOfBoard(mainBoard)[2]:
+                print('Sorry, YOU LOST! COMPUTER WON!')
+              elif getScoreOfBoard(mainBoard)[1]<getScoreOfBoard(mainBoard)[2]:
+                print('CONGRATULATIONs! YOU WON!!!')
+              else:
+                print('TIE! Play again?')
               while True:
                 1==1
           x, y = getComputerMove(mainBoard, computerTile, nstep)
@@ -202,10 +221,13 @@ def player(b,indx,items,mainBoard,playerTile,computerTile, nstep,out):
           dboard(mainBoard,items)
           with out:
             clear_output()
-            print(getScoreOfBoard(mainBoard))
+            print('Black : ',getScoreOfBoard(mainBoard)[1],' points')
+            print('White : ',getScoreOfBoard(mainBoard)[2],' points')
   else:
     with out:
       clear_output()
+      print('Black : ',getScoreOfBoard(mainBoard)[1],' points')
+      print('White : ',getScoreOfBoard(mainBoard)[2],' points')
       print('Cannot move here!')
     return
   return
