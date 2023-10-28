@@ -3,6 +3,10 @@ import pandas as pd
 import random
 import pickle
 from Environment import *
+
+def otherTile(tile):
+  return tile%2+1
+    
 def corner(x, y,N=6):
     tmp1 = [0,N-1]
     tmp2 = [0,N-1]
