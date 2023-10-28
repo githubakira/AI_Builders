@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import random
 import pickle
-from Minimax import *
+# from Minimax import *
 
 def resetBoard(N=6):
     board = np.array([0 for ii in range(N*N)]).reshape(N,N)
